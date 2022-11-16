@@ -86,8 +86,8 @@ ____
 
     - **AuthorID** - uuid
     - Name - varchar(author name)
-    - BirthDate - int(authors birth date)
-    - DeathDate - int(authors death date)
+    - BirthDate - date(authors birth date)
+    - DeathDate - date(authors death date)
     - Description - varchar(author description)
     - Image - varchar(author image image path)
 ____
