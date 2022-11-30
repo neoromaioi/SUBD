@@ -24,10 +24,10 @@ Database description:
 
     - **UserID** - uuid
     - RoleID - uuid(foreign key)
-    - FirstName - varchar(60)(user first name)
-    - LastName - varchar(60)(user last name)
-    - Password - varchar(60)(user password)
-    - Email - varchar(100)(user email)
+    - FirstName - varchar(50)(user first name)
+    - LastName - varchar(50)(user last name)
+    - Password - varchar(50)(user password)
+    - Email - varchar(80)(user email)
     - Blocked - bool(is the user blocked or not) 
 ____
 - Role - roles for users
@@ -38,27 +38,27 @@ ____
 - Log - user action logs
 
     - **UserID** - uuid(foreign key)
-    - Info - varchar(100)(user action for log)
+    - Info - varchar(128)(user action for log)
     - Date - datetime(time of user action)
 ____
 - Review - book review
 
     - **ReviewID** - uuid
     - BookID - uuid(foreign key)
-    - Text - varchar(1000)(book review text)
+    - Text - varchar(1024)(book review text)
     - User - uuid(IdUser, one to one review user)
 ____
 - Rating - book rating
 
     - **RatingID** - uuid
     - BookID - uuid(foreign key)
-    - Mark - tinyint(book rating from 1 to 10)
+    - Mark - tinyint(book rating from 1 to 10)(check Mark>0 Mark<11)
     - User - uuid(IdUser, one to one rating user)
 ____
 - Book
 
     - **BookID** - uuid
-    - Description - varchar(1000)(book description)
+    - Description - varchar(1024)(book description)
     - PublishingHouse - varchar(80)(book publishing house)
     - Series - varchar(80)(book series)
     - Year - smallint(book release year)
@@ -89,7 +89,7 @@ ____
     - BirthDate - date(authors birth date)
     - DeathDate - date(authors death date)
     - Description - varchar(720)(author description)
-    - Image - varchar(100)(author image image path)
+    - Image - varchar(100)(author image path)
 ____
 Normalized database:
 ![normalized database](https://github.com/neoromaioi/SUBD/raw/main/Picture2.png)
