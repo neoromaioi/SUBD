@@ -24,10 +24,11 @@ Database description:
 
     - **UserID** - uuid
     - RoleID - uuid(foreign key)
-    - FirstName - varchar(50)(user first name)
-    - LastName - varchar(50)(user last name)
-    - Password - varchar(50)(user password)
-    - Email - varchar(80)(user email)
+    - Name - varchar(32)(user login)
+    - FirstName - varchar(32)(user first name)
+    - LastName - varchar(32)(user last name)
+    - Password - varchar(64)(user password)
+    - Email - varchar(64)(user email)
     - Blocked - bool(is the user blocked or not) 
 ____
 - Role - roles for users
@@ -43,15 +44,15 @@ ____
 ____
 - Review - book review
 
-    - **ReviewID** - uuid
-    - BookID - uuid(foreign key)
+    - **UserID** - uuid(foreign key)
+    - **BookID** - uuid(foreign key)
     - Text - varchar(1024)(book review text)
     - User - uuid(IdUser, one to one review user)
 ____
 - Rating - book rating
 
-    - **RatingID** - uuid
-    - BookID - uuid(foreign key)
+    - **UserID** - uuid(foreign key)
+    - **BookID** - uuid(foreign key)
     - Mark - tinyint(book rating from 1 to 10)(check Mark>0 Mark<11)
     - User - uuid(IdUser, one to one rating user)
 ____
@@ -59,15 +60,15 @@ ____
 
     - **BookID** - uuid
     - Description - varchar(1024)(book description)
-    - PublishingHouse - varchar(80)(book publishing house)
-    - Series - varchar(80)(book series)
+    - PublishingHouse - varchar(64)(book publishing house)
+    - Series - varchar(64)(book series)
     - Year - smallint(book release year)
-    - Cover - varchar(100)(book cover image path)
+    - Cover - varchar(256)(book cover image path)
     - Pages - smallint(book pages)
-    - Size - varchar(50)(book size)
-    - ISBN - varchar(50)(book ISBN number)
+    - Size - varchar(64)(book size)
+    - ISBN - varchar(64)(book ISBN number)
 ____
-- Authors - many to many table between Book and Author
+- BookAuthor - many to many table between Book and Author
 
     - **AuthorID** - uuid(foreign key)
     - **BookID** - uuid(foreign key)
@@ -80,7 +81,7 @@ ____
 - Genre - book genre
 
     - **GenreID** - uuid
-    - Name - varchar(50)(genre name)
+    - Name - varchar(64)(genre name)
 ____
 - Author - book author
 
@@ -88,8 +89,8 @@ ____
     - Name - varchar(50)(author name)
     - BirthDate - date(authors birth date)
     - DeathDate - date(authors death date)
-    - Description - varchar(720)(author description)
-    - Image - varchar(100)(author image path)
+    - Description - varchar(1024)(author description)
+    - Image - varchar(256)(author image path)
 ____
 Normalized database:
 ![normalized database](https://github.com/neoromaioi/SUBD/raw/main/Picture2.png)
