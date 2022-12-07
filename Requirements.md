@@ -62,7 +62,7 @@ ____
     - Description - varchar(1024)(book description)
     - PublishingHouse - varchar(64)(book publishing house)
     - Series - varchar(64)(book series)
-    - Year - smallint(book release year)
+    - Year - varchar(32)(book release year)
     - Cover - varchar(256)(book cover image path)
     - Pages - smallint(book pages)
     - Size - varchar(64)(book size)
